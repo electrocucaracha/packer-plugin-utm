@@ -104,7 +104,7 @@ func (b *Builder) Run(ctx context.Context, ui packersdk.Ui, hook packersdk.Hook)
 			GuestAdditionsMode:      b.config.GuestAdditionsMode,
 			GuestAdditionsInterface: b.config.GuestAdditionsInterface,
 		},
-		// TODO: add steps to attach Floppy disk
+		new(utmcommon.StepAttachFloppy),
 		&utmcommon.StepAttachDisplay{
 			HardwareType: b.config.DisplayHardwareType,
 		},
