@@ -5,12 +5,12 @@ import (
 	"errors"
 	"fmt"
 
+	utmcommon "github.com/electrocucaracha/packer-plugin-utm/builder/utm/common"
 	"github.com/hashicorp/hcl/v2/hcldec"
 	"github.com/hashicorp/packer-plugin-sdk/communicator"
 	"github.com/hashicorp/packer-plugin-sdk/multistep"
 	"github.com/hashicorp/packer-plugin-sdk/multistep/commonsteps"
 	packersdk "github.com/hashicorp/packer-plugin-sdk/packer"
-	utmcommon "github.com/naveenrajm7/packer-plugin-utm/builder/utm/common"
 )
 
 // Builder implements packersdk.Builder and builds the actual UTM

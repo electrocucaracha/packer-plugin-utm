@@ -6,9 +6,9 @@ import (
 	"log"
 	"regexp"
 
+	utmcommon "github.com/electrocucaracha/packer-plugin-utm/builder/utm/common"
 	"github.com/hashicorp/packer-plugin-sdk/multistep"
 	packersdk "github.com/hashicorp/packer-plugin-sdk/packer"
-	utmcommon "github.com/naveenrajm7/packer-plugin-utm/builder/utm/common"
 )
 
 // This step configures the VM to send cloud init seed file.

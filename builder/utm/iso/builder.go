@@ -5,12 +5,12 @@ import (
 	"errors"
 	"fmt"
 
+	utmcommon "github.com/electrocucaracha/packer-plugin-utm/builder/utm/common"
 	"github.com/hashicorp/hcl/v2/hcldec"
 	"github.com/hashicorp/packer-plugin-sdk/communicator"
 	"github.com/hashicorp/packer-plugin-sdk/multistep"
 	"github.com/hashicorp/packer-plugin-sdk/multistep/commonsteps"
 	packersdk "github.com/hashicorp/packer-plugin-sdk/packer"
-	utmcommon "github.com/naveenrajm7/packer-plugin-utm/builder/utm/common"
 )
 
 const BuilderId = "naveenrajm7.iso"
@@ -96,14 +96,15 @@ func (b *Builder) Run(ctx context.Context, ui packersdk.Ui, hook packersdk.Hook)
 			Hypervisor:     b.config.Hypervisor,
 			KeepRegistered: b.config.KeepRegistered,
 		},
-		// TODO: Make sure ISO is first in the list for boot order
-		new(stepCreateDisk),
 		&utmcommon.StepAttachISOs{
 			AttachBootISO:           true, // Attach boot ISO , since CreateVM does not.
 			ISOInterface:            b.config.ISOInterface,
 			GuestAdditionsMode:      b.config.GuestAdditionsMode,
 			GuestAdditionsInterface: b.config.GuestAdditionsInterface,
 		},
+		// Attach the installer ISO before creating the blank disk so UTM assigns
+		// bootindex=0 to the ISO and boots into the installer on first startup.
+		new(stepCreateDisk),
 		new(utmcommon.StepAttachFloppy),
 		&utmcommon.StepAttachDisplay{
 			HardwareType: b.config.DisplayHardwareType,

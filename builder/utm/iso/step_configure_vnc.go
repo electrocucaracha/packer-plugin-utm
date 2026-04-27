@@ -9,10 +9,10 @@ import (
 	"log"
 	"math/rand"
 
+	utmcommon "github.com/electrocucaracha/packer-plugin-utm/builder/utm/common"
 	"github.com/hashicorp/packer-plugin-sdk/multistep"
 	"github.com/hashicorp/packer-plugin-sdk/net"
 	packersdk "github.com/hashicorp/packer-plugin-sdk/packer"
-	utmcommon "github.com/naveenrajm7/packer-plugin-utm/builder/utm/common"
 )
 
 // This step configures the VM to enable the VNC server.

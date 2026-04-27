@@ -16,9 +16,9 @@ import (
 //
 // ISOs are attached in a specific order to ensure predictable drive letter
 // assignment in Windows guests:
-//   1. boot_iso - The installation ISO (typically C: after install, but mounted first)
-//   2. cd_files - User-provided files ISO (typically D: in Windows)
-//   3. guest_additions - UTM guest tools ISO (typically E: in Windows)
+//  1. boot_iso - The installation ISO (typically C: after install, but mounted first)
+//  2. cd_files - User-provided files ISO (typically D: in Windows)
+//  3. guest_additions - UTM guest tools ISO (typically E: in Windows)
 //
 // This ordering is critical for Windows installations where scripts may depend
 // on knowing which drive letter to use for accessing files or running installers.

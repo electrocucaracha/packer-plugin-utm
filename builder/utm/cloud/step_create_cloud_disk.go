@@ -9,10 +9,10 @@ import (
 	"os/exec"
 	"strconv"
 
+	utmcommon "github.com/electrocucaracha/packer-plugin-utm/builder/utm/common"
 	"github.com/hashicorp/packer-plugin-sdk/multistep"
 	packersdk "github.com/hashicorp/packer-plugin-sdk/packer"
 	"github.com/hashicorp/packer-plugin-sdk/tmp"
-	utmcommon "github.com/naveenrajm7/packer-plugin-utm/builder/utm/common"
 )
 
 // This step creates the virtual disk from cloud image that will be used as the

@@ -7,8 +7,8 @@ import (
 	"context"
 	"testing"
 
+	utmcommon "github.com/electrocucaracha/packer-plugin-utm/builder/utm/common"
 	"github.com/hashicorp/packer-plugin-sdk/multistep"
-	utmcommon "github.com/naveenrajm7/packer-plugin-utm/builder/utm/common"
 )
 
 func TestStepImport_impl(t *testing.T) {

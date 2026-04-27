@@ -9,12 +9,12 @@ import (
 
 	"github.com/hashicorp/packer-plugin-sdk/plugin"
 
-	"github.com/naveenrajm7/packer-plugin-utm/builder/utm/cloud"
-	"github.com/naveenrajm7/packer-plugin-utm/builder/utm/iso"
-	"github.com/naveenrajm7/packer-plugin-utm/builder/utm/utm"
-	utmPPvagrant "github.com/naveenrajm7/packer-plugin-utm/post-processor/vagrant"
-	utmPPzip "github.com/naveenrajm7/packer-plugin-utm/post-processor/zip"
-	"github.com/naveenrajm7/packer-plugin-utm/version"
+	"github.com/electrocucaracha/packer-plugin-utm/builder/utm/cloud"
+	"github.com/electrocucaracha/packer-plugin-utm/builder/utm/iso"
+	"github.com/electrocucaracha/packer-plugin-utm/builder/utm/utm"
+	utmPPvagrant "github.com/electrocucaracha/packer-plugin-utm/post-processor/vagrant"
+	utmPPzip "github.com/electrocucaracha/packer-plugin-utm/post-processor/zip"
+	"github.com/electrocucaracha/packer-plugin-utm/version"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module github.com/naveenrajm7/packer-plugin-utm
+module github.com/electrocucaracha/packer-plugin-utm
 
 go 1.24.0
 
