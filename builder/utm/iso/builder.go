@@ -133,10 +133,12 @@ func (b *Builder) Run(ctx context.Context, ui packersdk.Ui, hook packersdk.Hook)
 			Message: "Confirm Install is complete, VM is running with OS installed. (Next steps is connecting to the VM)",
 			NoPause: b.config.BootNoPause,
 		},
-		// Some ISO installs reboot before SSH is available. Stop the VM after the
-		// installer phase, detach the boot ISO, then start it again so firmware
-		// boots from the newly installed disk instead of looping back into the ISO.
-		&utmcommon.StepStopVm{},
+		// Wait for installs that power off after completion, then remove the
+		// installer ISO before the next boot so firmware comes up on the installed
+		// disk instead of re-entering the installer.
+		&stepWaitForInstallShutdown{
+			Timeout: b.config.CommConfig.Comm.SSHTimeout,
+		},
 		&stepRemoveFirstDisk{},
 		&utmcommon.StepRun{},
 		&communicator.StepConnect{
